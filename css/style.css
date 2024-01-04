@@ -25,7 +25,7 @@ body {
 
 #Header .header_wrap_t {
     background: #f9f9f9;
-    border-bottom: 1px solid var(--gc);
+    /* border-bottom: 1px solid var(--gc); */
 }
 
 /* ---------Header 상단--------- */
@@ -51,6 +51,15 @@ body {
 }
 
 
+@media (max-width:768px) {
+
+    #Header {}
+
+    #Header .header_wrap_t {
+        display: none;
+    }
+}
+
 /* ---------Header 하단--------- */
 
 .header_wrap_b {
@@ -64,7 +73,6 @@ body {
     line-height: 7.6rem;
 
     border-bottom: 1px solid #ddd;
-
 }
 
 .header_bottom {
@@ -79,8 +87,9 @@ body {
 
 
     height: 7.6rem;
-
 }
+
+/* ---------Header 하단메뉴--------- */
 
 .header_bottom .gnb {}
 
@@ -114,9 +123,13 @@ body {
     opacity: 1;
 }
 
+.header_bottom .mopen {
+    display: none;
+}
+
 .header_bottom .util {
     display: flex;
-    gap: 1.4rem;
+    gap: 1.8rem;
     font-size: 2.4rem;
 
     color: #7c7c7c;
@@ -124,12 +137,81 @@ body {
     line-height: 1;
 }
 
+@media (max-width:768px) {
+    /* .header_wrap_b {
+        position: fixed;
+    } */
+
+    .header_bottom h1 {
+        position: fixed;
+        z-index: 9999;
+    }
+
+    .header_bottom .gnb {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        background: var(--wc);
+        z-index: 999;
+
+        height: 100vh;
+        width: calc(100% - 100px);
+        padding: 140px 120px 0 50px;
+
+        border-right: 1px solid var(--gc);
+        /* border-bottom: 1px solid var(--gc); */
+
+        transition: all 300ms ease-out;
+    }
+
+    .header_bottom .gnb.on {
+        left: 0;
+    }
+
+    .header_bottom .gnb>ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .header_bottom .gnb>li>a {
+        color: #fff;
+        border-bottom: 1px solid #666;
+        line-height: 1rem;
+    }
+
+    .header_bottom .util {
+        display: none;
+    }
+
+
+    .header_bottom .mopen {
+        display: block;
+
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        z-index: 999;
+    }
+
+    .header_bottom .mopen .hamburger {
+        padding: 0;
+    }
+
+    .header_bottom .mopen .hamburger-inner,
+    .hamburger-inner:after,
+    .hamburger-inner:before {
+        width: 3rem;
+        height: 0.2rem;
+    }
+}
+
+
+
 
 /* ---------Main--------- */
 
 #Main .main_slide {
-    padding: 5rem 0 0 0;
-
+    position: relative;
 }
 
 /* ---------main_slide 이미지--------- */
@@ -139,7 +221,7 @@ body {
 
     height: 64rem;
     max-width: 100%;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
 }
 
 #Main .main_slide .first-swiper .itm01 {
@@ -169,7 +251,7 @@ body {
     width: 100%;
 
     margin: 0 auto;
-    padding: 19rem 0 0 7rem;
+    padding: 20rem 1.5rem 0 1.5rem;
 }
 
 #Main .main_slide .txt_box p {
@@ -191,11 +273,78 @@ body {
     text-shadow: 1.5px 1.5px 1px #7c7c7c;
 }
 
+/* ---------main_slide 슬라이드 타이틀--------- */
+
+.main_slide .slide_tit {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    max-width: 141rem;
+    width: 100%;
+    z-index: 100;
+    transform: translate(-50%, 0);
+}
+
+.main_slide .slide_tit>li {
+    display: flex;
+    flex: 1 1 0;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: auto;
+    height: 5rem;
+    margin: 0 !important;
+    margin: 0;
+    padding: 0 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0;
+    font-size: 16px;
+    /* letter-spacing: -0.025em; */
+    color: var(--wc);
+    opacity: 1;
+
+    transition: all 1s;
+}
+
+.main_slide .slide_tit>li.swiper-pagination-bullet-active {
+    background: #fff;
+    color: var(--sc);
+
+    width: auto;
+}
+
+.main_slide .slide_tit>li .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--sc);
+}
+
+.main_slide .slide_tit>li.swiper-pagination-bullet-active .bar {
+    animation-name: 'countingBar';
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes countingBar {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
 /* ---------main_slide 양쪽 버튼--------- */
 
 #Main .main_slide .slide_btn {
     position: absolute;
-    max-width: 147rem;
+    max-width: 164rem;
     width: 100%;
     left: 50%;
     top: 47%;
@@ -213,7 +362,8 @@ body {
     padding: 2.4rem;
     border-radius: 50%;
 
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.1);
+
     border: 1px solid rgba(255, 255, 255, 0.9);
 }
 
@@ -234,7 +384,7 @@ body {
     padding: 2.4rem;
     border-radius: 50%;
 
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.9);
 }
 
@@ -250,7 +400,7 @@ body {
 
 /* ---------main_slide 닷츠--------- */
 
-.main_slide .swiper-pagination {
+/* .main_slide .swiper-pagination {
     position: absolute;
     top: 66%;
     left: -34%;
@@ -271,7 +421,7 @@ body {
     background: var(--wc);
     border: 1px solid transparent;
 }
-
+ */
 
 
 /* ---------main_visual--------- */
@@ -300,7 +450,7 @@ body {
 #Main .main_visual .tit_box strong {
     font-size: 2.8rem;
     color: var(--bc);
-    font-weight: bold;
+    font-weight: 600;
 }
 
 /* ---------main_visual 탭메뉴--------- */
@@ -349,6 +499,7 @@ body {
     /* position: relative; */
     /* font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
     overflow: hidden;
+    margin: 0 0 4rem 0;
 }
 
 #Main .tab_content .content {
@@ -375,7 +526,7 @@ body {
 #Main .tab_content .img_box img {
     display: block;
     width: 100%;
-    height: 31rem;
+    height: 20rem;
     object-fit: cover;
 }
 
@@ -408,7 +559,7 @@ body {
     max-width: 152rem;
     width: 100%;
     left: 50%;
-    top: 50%;
+    top: 43%;
     z-index: 999;
 
     transform: translate(-50%, -50%);
@@ -459,6 +610,30 @@ body {
     font-size: 2.4rem;
 }
 
+/* ---------main_visual 탭 더보기--------- */
+
+#Main .main_visual .btn_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Main .main_visual .btn_box a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1.6rem 2.6rem;
+    border: 1px solid var(--lc);
+    /* border-radius: 16px; */
+
+    font-size: 1.6rem;
+}
+
+#Main .main_visual .btn_box a span {
+    font-size: 2rem;
+    color: var(--sc);
+}
+
 /* ---------main_news--------- */
 
 #Main .main_news {
@@ -486,7 +661,7 @@ body {
     display: block;
     font-size: 2.8rem;
     color: var(--bc);
-    font-weight: bold;
+    font-weight: 600;
 }
 
 #Main .left_box .left_txt .btn_box {
@@ -527,10 +702,10 @@ body {
     background: var(--gc);
 }
 
-#Main .left_box .list li strong {
+#Main .left_box .list li span {
     display: block;
     font-size: 1.6rem;
-    color: var(--bc);
+    color: var(--sc);
     width: 38rem;
     overflow: hidden;
     white-space: nowrap;
@@ -558,7 +733,9 @@ body {
     flex: 1;
 }
 
-#Main .center_box .img_box {}
+#Main .center_box .img_box {
+    position: relative;
+}
 
 #Main .center_box .img_box img {
     border-top-right-radius: 5rem;
@@ -570,10 +747,10 @@ body {
 #Main .center_box .img_box::after {
     content: "";
     position: absolute;
-    top: 1.4rem;
-    right: -1.4rem;
+    top: 1.6rem;
+    right: -2.6rem;
 
-    width: 5.8rem;
+    width: 6rem;
     height: 2px;
     background: var(--mc);
 }
@@ -605,7 +782,7 @@ body {
     display: block;
     font-size: 2.8rem;
     color: var(--bc);
-    font-weight: bold;
+    font-weight: 600;
 }
 
 #Main .right_box .btn_box {
@@ -631,7 +808,6 @@ body {
 }
 
 #Main .right_box_slide p {
-    /* font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
     font-size: 1.6rem;
     color: var(--bc);
 
@@ -641,47 +817,70 @@ body {
 /* ---------main_content--------- */
 
 #Main .main_content {
-    height: 24rem;
-
+    padding: 9rem 0;
 }
 
-#Main .main_content .itm {
-    height: 100%;
-
-    background: url(../images/main_content01.png) no-repeat center center/cover;
+#Main .main_content .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#Main .main_content .txt_box {
-    padding: 8rem 0;
-}
+/* ---------main_content 왼쪽박스--------- */
 
 #Main .main_content .txt_box strong {
     display: block;
     font-size: 3.2rem;
-    color: var(--wc);
-    font-weight: bold;
+    color: var(--bc);
+    font-weight: 600;
 
-    margin: 0 0 1.6rem 0;
+    margin: 0 0 1rem 0;
 }
 
 #Main .main_content .txt_box span {
-    /* font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
-    font-size: 1.6rem;
-    color: var(--wc);
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--sc);
+    line-height: 1.3;
+    margin: 0 0 5rem 0;
 }
 
-#Main .main_content .txt_box p {}
+#Main .main_content .btn_box a {
+    padding: 1.6rem 2.6rem;
+    border: 1px solid var(--lc);
+    /* border-radius: 16px; */
+
+    font-size: 1.6rem;
+}
+
+/* ---------main_content 오른쪽박스--------- */
+
+#Main .main_content .content_left_box {
+    display: flex;
+    gap: 5rem;
+}
+
+#Main .main_content .content_left_box img {
+    width: 30rem;
+    object-fit: contain;
+}
+
 
 /* ---------Footer--------- */
 
 #Footer {
-    /* font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
-    background: var(--sc);
+    background: var(--gc);
 }
 
+/* ---------Footer 상단--------- */
+
 #Footer .footer_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 2rem 0;
-    border-bottom: 1px solid #606263;
+    border-bottom: 1px solid var(--lc);
 }
 
 #Footer .footer_top ul {
@@ -691,18 +890,99 @@ body {
 
 #Footer .footer_top ul>li>a {
     font-size: 1.5rem;
-    color: var(--gc);
+    color: #404345;
 }
 
 #Footer .footer_top ul>li .person {
-    color: var(--mc);
+    color: #404345;
+    ;
     font-weight: 600;
 }
 
+#Footer .footer_top .family_site select {
+    padding: 3px 10px;
+    font-size: 1.4rem;
+
+    color: #999;
+    border: none;
+    background: #ebebeb;
+    border: 0.1rem solid #bcbcbc;
+}
+
+/* ---------Footer 하단--------- */
+
 #Footer .footer_bottom {
-    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 0 3rem 0;
 }
 
 #Footer .footer_bottom figure img {
     filter: brightness(50%);
+    margin: 0 0 0.8rem 0;
+    height: 2.6rem;
+    object-fit: cover;
+}
+
+#Footer .footer_bottom .footer_bottom_info {}
+
+#Footer .footer_bottom .footer_bottom_info ul {
+    display: flex;
+
+    gap: 1.4rem;
+}
+
+#Footer .footer_bottom .footer_bottom_info ul>li>a {
+    font-size: 1.3rem;
+    color: #404345;
+
+    line-height: 1.2;
+}
+
+#Footer .footer_bottom .footer_bottom_right {
+    display: flex;
+    margin: 0.4rem 0 0 0;
+    width: 50rem;
+    height: 10rem;
+    background: #ebebeb;
+
+    align-items: center;
+
+    padding: 2.4rem 3.4rem 2.4rem 3.4rem;
+}
+
+#Footer .footer_bottom .footer_bottom_cs p {
+    font-size: 1.3rem;
+    color: #404345;
+    margin: 0 0 0.6rem 0;
+}
+
+#Footer .footer_bottom .footer_bottom_cs strong {
+    display: block;
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: #7c7c7c;
+}
+
+#Footer .footer_bottom .footer_bottom_tm {
+    margin: 0 0 0 auto;
+}
+
+#Footer .footer_bottom .footer_bottom_tm dl {
+    display: flex;
+    gap: 1.2rem;
+
+    line-height: 1.2;
+}
+
+#Footer .footer_bottom .footer_bottom_tm dl>dt {
+    font-size: 1.3rem;
+    color: #404345;
+    ;
+}
+
+#Footer .footer_bottom .footer_bottom_tm dl>dd {
+    font-size: 1.3rem;
+    color: #7c7c7c;
+    ;
 }

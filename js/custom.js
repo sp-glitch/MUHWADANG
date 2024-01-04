@@ -1,9 +1,25 @@
 $(function () {
+
+$(".mopen").on("click", function () {
+  $(".header_bottom .gnb").toggleClass("on");
+  $(this).find(".hamburger").toggleClass("is-active");
+});
+
+  var titArray = []; //슬라이드 타이틀
+  $('.main_slide .slide_tit > li').each(function (index, item) {
+    var txt = $(this).text();
+    titArray.push(txt);
+  })
+
   const firstSwiper = new Swiper(".main_slide .first-swiper", {
     effect: "fade",
+    // fadeEffect: {
+    //   crossFade: true
+    // },
 
     loop: true,
     speed: 1000,
+    delay: 3000,
 
     navigation: {
       nextEl: ".first-swiper .swiper-button-n",
@@ -11,10 +27,19 @@ $(function () {
     },
 
     pagination: {
-      el: ".first-swiper .swiper-pagination",
-      clickable: "true",
-      type: "bullets",
+      el: '.main_slide .slide_tit',
+      clickable: 'true',
+      type: 'bullets',
+      renderBullet: (index, className) => {
+        return `<li class=${className}><span class="bar"></span><span class="txt">${titArray[index]}</span></li>`;
+      },
     },
+
+    // pagination: {
+    //   el: ".first-swiper .swiper-pagination",
+    //   clickable: "true",
+    //   type: "bullets",
+    // },
 
     slideActiveClass: "on",
 
@@ -37,7 +62,7 @@ $(function () {
 
   var secondSwiper = new Swiper(".main_visual .second-swiper", {
     slidesPerView: 5,
-    spaceBetween: 22,
+    spaceBetween: 38,
 
     loop: true,
 
@@ -59,11 +84,11 @@ $(function () {
 
     loop: true,
 
-    pagination: {
-      el: ".third-swiper .swiper-pagination",
-      clickable: "true",
-      type: "bullets",
-    },
+    // pagination: {
+    //   el: ".third-swiper .swiper-pagination",
+    //   clickable: "true",
+    //   type: "bullets",
+    // },
     // navigation: {
     //   prevEl: ".swiper-button-nn",
     //   nextEl: ".swiper-button-pp",
