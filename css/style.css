@@ -1,0 +1,708 @@
+:root {
+    --mc: #ff7a41;
+    --bc: #1b1b1b;
+    --sc: #404345;
+    --wc: #ffffff;
+    --gc: #ddd;
+    --lc: #bcbcbc;
+}
+
+* {
+    /* outline: 1px solid palevioletred; */
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+/* ---------Header--------- */
+
+#Header {}
+
+#Header .header_wrap_t {
+    background: #f9f9f9;
+    border-bottom: 1px solid var(--gc);
+}
+
+/* ---------Header 상단--------- */
+
+#Header .header_top {
+    max-width: 144rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    line-height: 3rem;
+}
+
+#Header .header_top>ul {
+    display: flex;
+    font-size: 1.2rem;
+    color: #7c7c7c;
+    gap: 1.4rem;
+}
+
+
+/* ---------Header 하단--------- */
+
+.header_wrap_b {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 9999;
+    background: var(--wc);
+    line-height: 7.6rem;
+
+    border-bottom: 1px solid #ddd;
+
+}
+
+.header_bottom {
+    max-width: 144rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    height: 7.6rem;
+
+}
+
+.header_bottom .gnb {}
+
+.header_bottom .gnb>ul {
+    display: flex;
+    gap: 5.8rem;
+}
+
+.header_bottom .gnb>ul>li>a {
+    position: relative;
+    font-size: 1.8rem;
+    color: var(--sc);
+    font-weight: 600;
+}
+
+.header_bottom .gnb>ul>li>a::after {
+    content: "";
+    position: absolute;
+    top: -0.7rem;
+    right: -1rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    background: var(--mc);
+    border-radius: 50%;
+
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.header_bottom .gnb>ul>li:hover>a::after {
+    opacity: 1;
+}
+
+.header_bottom .util {
+    display: flex;
+    gap: 1.4rem;
+    font-size: 2.4rem;
+
+    color: #7c7c7c;
+    align-items: center;
+    line-height: 1;
+}
+
+
+/* ---------Main--------- */
+
+#Main .main_slide {
+    padding: 5rem 0 0 0;
+
+}
+
+/* ---------main_slide 이미지--------- */
+
+#Main .main_slide .itm {
+    position: relative;
+
+    height: 64rem;
+    max-width: 100%;
+    border-radius: 1rem;
+}
+
+#Main .main_slide .first-swiper .itm01 {
+    background: url(../images/mainslide01.jpg) no-repeat center center/cover;
+}
+
+#Main .main_slide .first-swiper .itm02 {
+    background: url(../images/mainslide02.jpg) no-repeat center center/cover;
+}
+
+#Main .main_slide .first-swiper .itm03 {
+    background: url(../images/mainslide03.jpg) no-repeat center center/cover;
+}
+
+#Main .main_slide .first-swiper .itm04 {
+    background: url(../images/mainslide04.jpg) no-repeat center center/cover;
+}
+
+#Main .main_slide .first-swiper .itm05 {
+    background: url(../images/mainslide05.jpg) no-repeat center center/cover;
+}
+
+/* ---------main_slide 텍스트--------- */
+
+#Main .main_slide .txt_box {
+    max-width: 144rem;
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 19rem 0 0 7rem;
+}
+
+#Main .main_slide .txt_box p {
+    font-size: 5rem;
+    font-weight: 600;
+
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 3rem 0;
+
+    text-shadow: 2px 2px 1px #7c7c7c;
+}
+
+#Main .main_slide .txt_box span {
+    font-size: 2.6rem;
+    font-weight: 500;
+
+    color: #ffffff;
+    text-shadow: 1.5px 1.5px 1px #7c7c7c;
+}
+
+/* ---------main_slide 양쪽 버튼--------- */
+
+#Main .main_slide .slide_btn {
+    position: absolute;
+    max-width: 147rem;
+    width: 100%;
+    left: 50%;
+    top: 47%;
+    z-index: 999;
+
+    transform: translate(-50%, -50%);
+
+    cursor: pointer;
+}
+
+#Main .main_slide .swiper-button-n {
+    position: absolute;
+    left: 0;
+    z-index: 999;
+    padding: 2.4rem;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+#Main .main_slide .swiper-button-n span {
+    position: absolute;
+    left: 56%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 2.4rem;
+}
+
+#Main .main_slide .swiper-button-p {
+    position: absolute;
+    right: 0;
+    z-index: 999;
+    padding: 2.4rem;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+#Main .main_slide .swiper-button-p span {
+    position: absolute;
+    left: 56%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 2.4rem;
+}
+
+/* ---------main_slide 닷츠--------- */
+
+.main_slide .swiper-pagination {
+    position: absolute;
+    top: 66%;
+    left: -34%;
+}
+
+.main_slide .swiper-pagination-bullet {
+    width: 1.1rem;
+    height: 1.1rem;
+    background: transparent;
+    border: 0.1rem solid var(--wc);
+    opacity: 1;
+}
+
+.main_slide .swiper-pagination-bullet-active {
+    width: 3.8rem;
+    transition: width .5s;
+    border-radius: 5px;
+    background: var(--wc);
+    border: 1px solid transparent;
+}
+
+
+
+/* ---------main_visual--------- */
+
+#Main .main_visual {
+    position: relative;
+    padding: 9rem 0;
+
+    /* border-bottom: 1px solid var(--gc); */
+}
+
+/* ---------main_visual 타이틀--------- */
+
+#Main .main_visual .tit_box {
+    display: flex;
+    margin: 0 0 3rem 0;
+}
+
+#Main .main_visual .tit_box p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--mc);
+    margin: 0 0 1rem 0;
+}
+
+#Main .main_visual .tit_box strong {
+    font-size: 2.8rem;
+    color: var(--bc);
+    font-weight: bold;
+}
+
+/* ---------main_visual 탭메뉴--------- */
+
+#Main .tit_box .main_tab {
+
+    align-items: flex-end;
+    display: flex;
+    gap: 2rem;
+
+    margin: 0 0 0 auto;
+}
+
+.main_tab li {
+    position: relative;
+}
+
+
+.main_tab li~li::after {
+    content: "";
+    position: absolute;
+    top: 41%;
+    left: -22%;
+    width: 0.1rem;
+    height: 1.2rem;
+    background: var(--lc);
+    transform: translate(0, -50%);
+}
+
+.main_tab li>a {
+    display: block;
+    padding: 0 1rem;
+    color: var(--bc);
+    line-height: 1;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+#Main .main_tab li.on>a {
+    color: var(--mc);
+}
+
+/* ---------main_visual 탭콘텐트--------- */
+
+#Main .tab_content {
+    /* position: relative; */
+    /* font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
+    overflow: hidden;
+}
+
+#Main .tab_content .content {
+    height: 0;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 높이 & overflow hidden 으로 주기 */
+}
+
+#Main .tab_content .content.on {
+    height: 100%;
+    overflow: visible;
+}
+
+#Main .tab_content .img_box {
+    margin: 0 0 1.6rem 0;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+#Main .tab_content .img_box img {
+    display: block;
+    width: 100%;
+    height: 31rem;
+    object-fit: cover;
+}
+
+/* ---------main_visual 탭콘텐트 텍스트--------- */
+
+#Main .tab_content .txt_box {
+    /* font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
+}
+
+#Main .tab_content .txt_box strong {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 500;
+
+    margin: 0 0 0.8rem 0;
+}
+
+#Main .tab_content .txt_box p {
+    display: block;
+    font-size: 1.6rem;
+    color: var(--sc);
+
+    margin: 0 0 0.8rem 0;
+}
+
+/* ---------main_visual 탭 양쪽 버튼--------- */
+
+#Main .tab_content .slide_btn {
+    position: absolute;
+    max-width: 152rem;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    z-index: 999;
+
+    transform: translate(-50%, -50%);
+
+    cursor: pointer;
+}
+
+#Main .tab_content .swiper-button-nn {
+    position: absolute;
+    left: 0;
+    z-index: 999;
+    padding: 1.8rem;
+    border-radius: 50%;
+    border: 1px solid var(--lc);
+
+    background: var(--wc);
+}
+
+#Main .tab_content .swiper-button-nn span {
+    position: absolute;
+    left: 54%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    color: var(--lc);
+    font-size: 2.4rem;
+}
+
+#Main .tab_content .swiper-button-pp {
+    position: absolute;
+    right: 0;
+    z-index: 999;
+    padding: 1.8rem;
+    border-radius: 50%;
+
+    background: var(--wc);
+
+    border: 1px solid var(--lc)
+}
+
+#Main .tab_content .swiper-button-pp span {
+    position: absolute;
+    left: 54%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    color: var(--lc);
+    font-size: 2.4rem;
+}
+
+/* ---------main_news--------- */
+
+#Main .main_news {
+    padding: 8rem 0;
+    /* border-bottom: 1px solid var(--gc); */
+    background: #f9f9f9;
+}
+
+#Main .main_news .inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+}
+
+
+
+/* ---------main_news 왼쪽 공지사항--------- */
+
+#Main .left_box .left_txt {
+    display: flex;
+    margin: 0 0 2rem 0;
+}
+
+#Main .left_box .left_txt .tit_box strong {
+    display: block;
+    font-size: 2.8rem;
+    color: var(--bc);
+    font-weight: bold;
+}
+
+#Main .left_box .left_txt .btn_box {
+    display: flex;
+    align-items: center;
+
+    margin: 0 0 0 auto;
+    gap: 0.4rem;
+}
+
+#Main .left_box .left_txt .btn_box a {
+    font-size: 1.4rem;
+    color: var(--sc);
+}
+
+#Main .left_box .left_txt .btn_box span {
+    font-size: 1.6rem;
+    color: var(--sc);
+}
+
+#Main .left_box .list li {
+    position: relative;
+    /* font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
+
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 1.6rem 0;
+    padding: 0 0 0.4rem 0;
+}
+
+#Main .left_box .list li::before {
+    content: "";
+    position: absolute;
+    top: 2.4rem;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gc);
+}
+
+#Main .left_box .list li strong {
+    display: block;
+    font-size: 1.6rem;
+    color: var(--bc);
+    width: 38rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#Main .left_box .list li p {
+    font-size: 1.4rem;
+    color: #a7a7a7;
+}
+
+/* ---------main_news 오른쪽 팝업--------- */
+
+#Main .center_box {
+    position: relative;
+
+    /* background: #fbf1dc; */
+    /* font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
+
+    display: flex;
+    /* overflow: hidden; */
+}
+
+#Main .center_box>div {
+    flex: 1;
+}
+
+#Main .center_box .img_box {}
+
+#Main .center_box .img_box img {
+    border-top-right-radius: 5rem;
+    object-fit: cover;
+    width: 100%;
+    height: 22rem;
+}
+
+#Main .center_box .img_box::after {
+    content: "";
+    position: absolute;
+    top: 1.4rem;
+    right: -1.4rem;
+
+    width: 5.8rem;
+    height: 2px;
+    background: var(--mc);
+}
+
+/* ---------main_news 오른쪽 팝업 텍스트--------- */
+
+#Main .right_box {
+    height: 22rem;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    /* background: #ddd; */
+}
+
+#Main .right_box .right_txt {
+    display: flex;
+    padding: 0.8rem 0 0 0;
+    margin: 0 0 1.6rem 0;
+}
+
+#Main .right_box .txt_box p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--mc);
+    margin: 0 0 1rem 0;
+}
+
+#Main .right_box .txt_box strong {
+    display: block;
+    font-size: 2.8rem;
+    color: var(--bc);
+    font-weight: bold;
+}
+
+#Main .right_box .btn_box {
+    display: flex;
+    align-items: center;
+    margin: auto 0 0 auto;
+    gap: 0.4rem;
+}
+
+#Main .right_box .btn_box a {
+    font-size: 1.4rem;
+    color: var(--sc);
+}
+
+#Main .right_box .btn_box span {
+    font-size: 1.6rem;
+    color: var(--sc);
+}
+
+
+#Main .right_box_slide img {
+    margin: 0 0 1.8rem 0;
+}
+
+#Main .right_box_slide p {
+    /* font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
+    font-size: 1.6rem;
+    color: var(--bc);
+
+    text-align: center;
+}
+
+/* ---------main_content--------- */
+
+#Main .main_content {
+    height: 24rem;
+
+}
+
+#Main .main_content .itm {
+    height: 100%;
+
+    background: url(../images/main_content01.png) no-repeat center center/cover;
+}
+
+#Main .main_content .txt_box {
+    padding: 8rem 0;
+}
+
+#Main .main_content .txt_box strong {
+    display: block;
+    font-size: 3.2rem;
+    color: var(--wc);
+    font-weight: bold;
+
+    margin: 0 0 1.6rem 0;
+}
+
+#Main .main_content .txt_box span {
+    /* font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
+    font-size: 1.6rem;
+    color: var(--wc);
+}
+
+#Main .main_content .txt_box p {}
+
+/* ---------Footer--------- */
+
+#Footer {
+    /* font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
+    background: var(--sc);
+}
+
+#Footer .footer_top {
+    padding: 2rem 0;
+    border-bottom: 1px solid #606263;
+}
+
+#Footer .footer_top ul {
+    display: flex;
+    gap: 2.2rem;
+}
+
+#Footer .footer_top ul>li>a {
+    font-size: 1.5rem;
+    color: var(--gc);
+}
+
+#Footer .footer_top ul>li .person {
+    color: var(--mc);
+    font-weight: 600;
+}
+
+#Footer .footer_bottom {
+    padding: 2rem 0;
+}
+
+#Footer .footer_bottom figure img {
+    filter: brightness(50%);
+}
